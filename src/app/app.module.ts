@@ -5,11 +5,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QAListComponent } from './component/qalist/qalist.component';
+import { GetAnswersComponent } from './component/get-answers/get-answers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QAListComponent
+    QAListComponent,
+    GetAnswersComponent
   ],
   imports: [
     BrowserModule,

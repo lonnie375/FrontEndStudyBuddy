@@ -11,17 +11,27 @@ export class StudybuddyService {
 
   constructor(private client:HttpClient) { }
 
-//Get all questions and answers 
+//Get all questions 
 getQAList() : Observable<QuestionAndAnswerDetail[]> {
   let questionList = this.client.get<QuestionAndAnswerDetail[]>(environment.apiUrl + "GetQAList"); 
   return questionList; 
 }
 
+//Get the answer for the question 
+//We need to get the remaining apiURL information in order to get this information. 
+getAnswerById(id: number){
+  let answer = this.client.get<QuestionAndAnswerDetail>(environment.apiUrl + "####" + id); 
+} 
 
-//Add question & answer pair to favorites 
+//Mark your favorite question/answer pair 
+postFavoriteQA(id: number){
+  let result = this.client.post(environment.apiUrl + "###", id); 
+}
 
-//Remove a question & answer pair from favorites 
+//View your favorite question/answers
 
-//User can add a question & answer pair 
+//Remove a question & Answer from their list of favorites 
+
+//User can add a question and Answer 
 
 }

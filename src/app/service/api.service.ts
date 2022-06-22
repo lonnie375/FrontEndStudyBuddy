@@ -13,7 +13,7 @@ export class StudybuddyService {
 
 //Get all questions 
 getQAList() : Observable<QuestionAndAnswerDetail[]> {
-  let questionList = this.client.get<QuestionAndAnswerDetail[]>(environment.apiUrl + "GetQAList"); 
+  let questionList = this.client.get<QuestionAndAnswerDetail[]>(environment.apiUrl + "QuestionAndAnswerDetails/GetQAList"); 
   return questionList; 
 }
 

@@ -13,14 +13,7 @@ export class QAListComponent implements OnInit {
   constructor(private service: StudybuddyService) { }
 
   //Create an Array to hold the list of questions/answers
-  questionAList: QuestionAndAnswerDetail[] = [
-    {
-      question: "Testing for update", 
-      qaCategory: "Spam Numbers", 
-      qAid: 25, 
-      answer: "Lucky number 7"
-    }
-  ]; 
+  questionAList: QuestionAndAnswerDetail[] = []; 
 
   //This is going to run once the component runs
   ngOnInit(): void {
@@ -31,6 +24,12 @@ export class QAListComponent implements OnInit {
   //Passing that information into a array 
 getQAList(){
   this.service.getQAList().subscribe((data:QuestionAndAnswerDetail[]) => this.questionAList = data);
+}
+
+//Posting favorite questions/answers to the API
+addToFavorites(id:number){
+  this.service.postFavoriteQA({userId: 1, qAId: id, isActive: true});
+
 }
 
 }

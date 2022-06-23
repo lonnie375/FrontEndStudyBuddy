@@ -4,13 +4,39 @@
             <h1>Question and Answers</h1>
         </div>
     </div>
-    <div class="row">
-        <!-- user is going to see a list of questions here-->
-        <!-- use a card to display the question first and an option to display the answer after clicking the button-->
-        <div class="col-3" *ngFor="let test of questionAList">
-           <p>{{test.question}}</p> 
-           <a [routerLink]="['/getAnswers', test.qAid]" class="btn btn-primary">Answer</a>
+ 
+</div>
+<div class="row">
+    <div class="col-12">
+    <!-- user is going to see a list of questions here-->
+    <!-- use a card to display the question first and an option to display the answer after clicking the button-->
+    <div class="" *ngFor="let test of questionAList">
+       
+       <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h6 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <p>{{test.question}}</p>
+            </button>
+          </h6>
+
+
+            <!-- Checkbox for favorite questions-->
+            <!-- add this to a list of their favorites-->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" (click)="addToFavorites(test.qAid)" id="flexCheckDefault" [checked]="test">
+              <label class="form-check-label" for="flexCheckDefault" >
+                Check if this is your favorite question. 
+              </label>
+         
+
+          
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>{{test.answer}}</p>
+            </div>
+          </div>
         </div>
     </div>
 </div>
-
+</div>

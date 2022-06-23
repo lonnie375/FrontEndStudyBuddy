@@ -26,4 +26,10 @@ getQAList(){
   this.service.getQAList().subscribe((data:QuestionAndAnswerDetail[]) => this.questionAList = data);
 }
 
+//Posting favorite questions/answers to the API
+addToFavorites(id:number){
+  this.service.postFavoriteQA({userId: 1, qAId: id, isActive: true});
+
+}
+
 }

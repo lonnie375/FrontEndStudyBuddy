@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FavoriteQA } from '../interface/favorite-qa';
 import { QuestionAndAnswerDetail } from '../interface/QuestionAndAnswerDetail';
 
 @Injectable({
@@ -23,9 +24,9 @@ getAnswerById(id: number){
   let answer = this.client.get<QuestionAndAnswerDetail>(environment.apiUrl + "####" + id); 
 } 
 
-//Mark your favorite question/answer pair 
-postFavoriteQA(id: number){
-  let result = this.client.post(environment.apiUrl + "###", id); 
+//Post your favorite question/answer pair 
+postFavoriteQA(userFav: FavoriteQA){
+  let result = this.client.post(environment.apiUrl + "QuestionAndAnswerDetails/PostFavoriteQuestion", userFav); 
 }
 
 //View your favorite question/answers

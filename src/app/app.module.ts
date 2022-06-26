@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QAListComponent } from './component/qalist/qalist.component';
 import { GetAnswersComponent } from './component/get-answers/get-answers.component';
+import { FavoritesComponent } from './component/favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QAListComponent,
-    GetAnswersComponent
+    GetAnswersComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

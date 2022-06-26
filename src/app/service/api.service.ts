@@ -25,8 +25,9 @@ getAnswerById(id: number){
 } 
 
 //Post your favorite question/answer pair 
-postFavoriteQA(userFav: FavoriteQA){
+postFavoriteQA(userFav) : Observable<FavoriteQA[]>{
   let result = this.client.post(environment.apiUrl + "QuestionAndAnswerDetails/PostFavoriteQuestion", userFav); 
+  return result; 
 }
 
 //View your favorite question/answers

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoriteQA } from 'src/app/interface/favorite-qa';
 import { QuestionAndAnswerDetail } from 'src/app/interface/QuestionAndAnswerDetail';
 import { StudybuddyService} from 'src/app/service/api.service'; 
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 
 @Component({
@@ -15,9 +17,12 @@ export class QAListComponent implements OnInit {
   //Create an Array to hold the list of questions/answers
   questionAList: QuestionAndAnswerDetail[] = []; 
 
+  
+
   //This is going to run once the component runs
   ngOnInit(): void {
     this.getQAList();
+  
   }
 
   //Reaching out to service and getting all of the questions and answers
@@ -26,10 +31,9 @@ getQAList(){
   this.service.getQAList().subscribe((data:QuestionAndAnswerDetail[]) => this.questionAList = data);
 }
 
-//Posting favorite questions/answers to the API
-addToFavorites(id:number){
-  this.service.postFavoriteQA({userId: 1, qAId: id, isActive: true});
 
+addToFavorites(id: number){
+  this.service.postFavoriteQA({userId: 1, qAId: id, isActive: true});
 }
 
 }
